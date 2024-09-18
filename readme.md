@@ -1,3 +1,11 @@
+После запуска сборки 
+- php artisan migrate
+- php artisan db:seed 
+
+И в базе можно будет посмотреть товары и свойства, чтобы проверить метод.
+
+По заданию, оно не так тривиально как подано, сделал простейшую вариацию по этой статье https://habr.com/ru/articles/485520/ 
+
 # PHP Laravel environment
 Docker environment required to run Laravel (based on official php and mysql docker hub repositories).
 
