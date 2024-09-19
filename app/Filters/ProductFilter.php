@@ -5,6 +5,7 @@ namespace App\Filters;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Http\Request;
 use App\Filters\QueryFilter;
+use DB;
 
 class ProductFilter extends QueryFilter
 {
@@ -48,7 +49,7 @@ class ProductFilter extends QueryFilter
                           FROM
                             rs_properties
                           WHERE
-                            title like '" . $prop . "'
+                            title like " . DB::escape($prop) . "
                         )
                         AND property_id IN (
                           SELECT
@@ -56,8 +57,8 @@ class ProductFilter extends QueryFilter
                           FROM
                             rs_properties_options
                           WHERE
-                            text_val = '" . $val . "'
-                            OR int_val = '" . $val . "'
+                            text_val = " .  DB::escape($val) . "
+                            OR int_val = " .  DB::escape($val) . "
                         )
                     )
                 ");
